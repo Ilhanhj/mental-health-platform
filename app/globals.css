@@ -1,8 +1,63 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@custom-variant dark (&:is(.dark *));
+@theme inline {
+  /* Configure your theme variables here */
+  --animate-cell-ripple: cell-ripple var(--duration, 200ms) ease-out none 1 var(--delay, 0ms);
+  --font-display: "Inter", "sans-serif";
+  --color-primary-500: oklch(0.84 0.18 117.33);
+  --spacing: 0.25rem;
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  @keyframes cell-ripple {
+    0% {
+      opacity: 0.4;
+    }
+    50% {
+      opacity: 0.8;
+    }
+    100% {
+      opacity: 0.4;
+    }
+  }
 }
 
 @theme inline {
@@ -12,15 +67,260 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ... CSS kamu yang lain ... */
+
+/* =========================================
+   STYLE KHUSUS TIPTAP EDITOR
+   ========================================= */
+.ProseMirror {
+  outline: none; /* Hilangkan border biru saat diklik */
+}
+
+/* Kembalikan Bullet Points (List) */
+.ProseMirror ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Kembalikan Numbering (List Angka) */
+.ProseMirror ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Kembalikan Heading */
+.ProseMirror h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.ProseMirror h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.ProseMirror h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Kembalikan Blockquote */
+.ProseMirror blockquote {
+  border-left: 4px solid #8b5cf6; /* Warna Violet */
+  padding-left: 1rem;
+  margin-left: 0;
+  font-style: italic;
+  color: #6b7280; /* Warna abu-abu */
+}
+
+/* Kembalikan Bold & Italic */
+.ProseMirror strong {
+  font-weight: bold;
+}
+
+.ProseMirror em {
+  font-style: italic;
+}
+
+/* Perbaiki Paragraf */
+.ProseMirror p {
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+}
+
+/* ... Kode .ProseMirror yang tadi biarkan saja di atasnya ... */
+
+/* =========================================
+   STYLE ARTIKEL DI HALAMAN USER (FRONTEND)
+   ========================================= */
+
+.article-content {
+  color: #374151; /* Warna teks abu gelap */
+}
+
+/* Dark Mode Support (Opsional kalau mau support dark mode) */
+@media (prefers-color-scheme: dark) {
+  .article-content {
+    color: #d1d5db;
+  }
+}
+
+/* Heading H2 (Sub-judul) */
+.article-content h2 {
+  font-size: 1.5rem; /* Ukuran besar */
+  font-weight: 800; /* Tebal */
+  margin-top: 2rem; /* Jarak atas */
+  margin-bottom: 1rem; /* Jarak bawah */
+  color: #111827; /* Hitam pekat */
+  line-height: 1.3;
+}
+
+/* Dark mode untuk Heading */
+.dark .article-content h2 {
+  color: #ffffff;
+}
+
+/* Heading H3 */
+.article-content h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: #1f2937;
+}
+
+/* Paragraf */
+.article-content p {
+  margin-bottom: 1.25rem; /* Jarak antar paragraf */
+  line-height: 1.8; /* Spasi baris biar enak dibaca */
+}
+
+/* List Bullet (Titik) */
+.article-content ul {
+  list-style-type: disc; /* Munculkan titiknya */
+  padding-left: 1.5rem; /* Geser kanan */
+  margin-bottom: 1.25rem;
+}
+
+/* List Number (Angka 1, 2, 3) */
+.article-content ol {
+  list-style-type: decimal; /* Munculkan angkanya */
+  padding-left: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+/* Item List */
+.article-content li {
+  margin-bottom: 0.5rem; /* Jarak antar poin */
+  padding-left: 0.5rem;
+}
+
+/* Blockquote (Kutipan) */
+.article-content blockquote {
+  border-left: 4px solid #8b5cf6; /* Garis ungu di kiri */
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #4b5563;
+  background-color: #f9fafb; /* Background tipis */
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.dark .article-content blockquote {
+  background-color: rgba(139, 92, 246, 0.1);
+  color: #d1d5db;
+}
+
+/* Bold & Italic */
+.article-content strong {
+  font-weight: 700;
+  color: #000;
+}
+.dark .article-content strong {
+  color: #fff;
+}
+
+.article-content em {
+  font-style: italic;
+}
+
+/* Link (Kalau ada link di dalam artikel) */
+.article-content a {
+  color: #7c3aed; /* Ungu */
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.article-content a:hover {
+  color: #6d28d9;
 }
